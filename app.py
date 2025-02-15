@@ -65,10 +65,11 @@ def createevent():
 
 @app.get("/mct/event/<eventid>")
 def getevent_details(eventid):
-    with open(f"{eventid}.json", "r", encoding= "utf-8") as file:
-        eventdetails = json.load(file)
-    
-    return eventdetails
+    try:
+        with open(f"{eventid}.json", "r", encoding="utf-8") as file:
+            return  json.load(file)
+    except Exception as e:
+            return jsonify({"error": "File Not found"})
 
 @app.get("/mct/events")
 def get_all_events():
