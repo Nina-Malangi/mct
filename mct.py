@@ -7,3 +7,4 @@ class MCT:
     origin_carrier: str
     dest_carrier: str
     time: int
+    sender_mail_id: str
